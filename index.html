@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>File Transfer Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+        var fileTransfer = new FileTransfer();
+        var uri = encodeURI("http://osmd.ch/haiyan/Haiyan_2.obf");
+        var filePath = "/sdcard/test/newfile.obf"
+
+        fileTransfer.download(
+            uri,
+            filePath,
+            function(entry) {
+                console.log("download complete: " + entry.fullPath);
+            },
+            function(error) {
+                console.log("download error source " + error.source);
+                console.log("download error target " + error.target);
+                console.log("upload error code" + error.code);
+            },
+            false,
+            {
+                // headers: {
+                //     "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+                // }
+            }
+        );
+
+        </script>
+</head>
+<body>
+    <h1>Example</h1>
+    <p>Upload File</p>
+</body>
+</html>
+
